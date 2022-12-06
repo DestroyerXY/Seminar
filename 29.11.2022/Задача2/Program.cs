@@ -1,14 +1,20 @@
 ﻿Console.Clear();
 
-Console.Write("Write number");
+int i = 1;
 
-int a = Convert.ToInt32(Console.ReadLine());
+Console.Write("Write number: ");
 
-Console.Write("Write number");
+int n = Convert.ToInt32(Console.ReadLine());
 
-int b = Convert.ToInt32(Console.ReadLine());
-
-if (a > b)
-    Console.WriteLine(a);
-else
-    Console.WriteLine(b);
+while (i <= n)
+{
+   if (i%2 == 0)
+    {
+        Console.Write($"{i} ");
+        i = i + 2;
+    }
+   else
+    {
+        i = i + 1;
+    }
+}
