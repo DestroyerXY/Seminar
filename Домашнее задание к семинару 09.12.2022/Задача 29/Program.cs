@@ -4,11 +4,14 @@
 // 1, 2, 5, 7, 19, 6, 1, 33 -> [1, 2, 5, 7, 19, 6, 1, 33]
 
 Console.Clear();
-Console.WriteLine("Напишите количество элементов массива:");
+Console.WriteLine("Введите число элементов массива: ");
 int n = Convert.ToInt32(Console.ReadLine());
-int[] array = new int [n];
-Console.WriteLine("Напишите элементы массива:");
-int b = Convert.ToInt32(Console.ReadLine());
-for (int b = 0; b < array.Length; b++)
-    array[b] = new int().Next(0, n);
-Console.WriteLine($"[{string.Join(" , ", array)}]");
+int [] array = new int [n];
+for (int i = 0; i < n; i ++)
+    {
+        Console.WriteLine("Введите число: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+
+    }
+    Console.WriteLine();  
+Console.WriteLine($"[{string.Join(", ", array)}]");
