@@ -15,36 +15,30 @@
 // В третьей строке нужно вывести «YES», если Вася может рассчитывать на четверку и «NO» в противном случае. В каждой строчке числа следует выводить в том же порядке, 
 // в котором они идут во входных данных. При выводе числа отделяются пробелом.
 
-void InputArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-      array[i] = new Random().Next(1, 32);// [1, 31]
-}
-
-void ReleaseArray(int[]array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] %2 == 0)
-        {
-            Console.WriteLine($"[{string.Join(",", array[i])}]");
-        }
-    }
-    for (int j = 0; j < array.Length; j++)
-    {
-        if (array[j] %2 ==1)
-        {
-            Console.WriteLine($"[{string.Join(",", array[j])}]");
-        }
-    }
-    
-}
-
-
-Console.Clear();
-Console.Write("Напишите необходимое количество цифр в массиве:");
 int n = Convert.ToInt32(Console.ReadLine());
-int [] array = new int [n];
-InputArray(array);
-Console.WriteLine($"[{string.Join(",", array)}]");
-ReleaseArray(array);
+int[] array = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
+ 
+ 
+int countEven = 0, countOdd = 0;
+foreach (int element in array)
+{
+    if (element % 2 == 1)
+    {
+        Console.Write($"{element} ");
+        countEven++;
+    }
+}
+Console.WriteLine();
+foreach (int element in array)
+{
+    if (element % 2 == 0)
+    {
+        Console.Write($"{element} ");
+        countOdd++;
+    }
+}
+Console.WriteLine();
+if (countOdd >= countEven)
+    Console.WriteLine("YES");
+else
+    Console.WriteLine("NO");
