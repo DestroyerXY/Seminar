@@ -25,18 +25,6 @@ void InputMatrix(int[,] matrix)
     }
 }
 
-void ReleaseMatrix(int[,] matrix)
-{
-    for (int i = 1; i < matrix.GetLength(0); i++)
-    { 
-        for (int j = 1; j < matrix.GetLength(1); j++)
-        {
-            if ( i > matrix.GetLength(0) + 1 || j > matrix.GetLength(1) + 1);
-        }    
-    }
-    Console.Write("Такой позиции нет");
-}
-
 
 Console.Clear();
 Console.Write("Введите размеры матрицы: ");
@@ -45,5 +33,18 @@ int[,] matrix = new int[size[0], size[1]];
 InputMatrix(matrix);
 Console.Write("Введите позицию массива: ");
 int[] mas = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
-int[,] matrix1 = new int[size[0], size[1]];
-ReleaseMatrix(matrix);
+if (matrix.GetLength(1) < mas[1] || matrix.GetLength(0) < mas[0])
+    Console.Write("Такой позиции в массиве нет");
+for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        if (i == mas[0]-1)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                if (j == mas[1]-1)
+                    Console.WriteLine($"Искомый элемент = {matrix[i,j]}");
+                
+            }
+        }
+    }
+
